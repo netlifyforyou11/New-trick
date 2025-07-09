@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Temporarily Unavailable</title>
+    <title>Facebook - Service Temporarily Unavailable</title>
     <style>
         * {
             margin: 0;
@@ -54,8 +54,40 @@
             text-align: center;
         }
 
+        .maintenance-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1877f2;
+        }
+
+        .maintenance-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Fallback styling if no image is provided */
+        .maintenance-icon:empty {
+            background-color: #1877f2;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .maintenance-icon:empty::before {
+            content: "f";
+        }
+
         .maintenance-title {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 600;
             color: #1c1e21;
             margin-bottom: 16px;
@@ -99,7 +131,7 @@
             }
 
             .maintenance-title {
-                font-size: 28px;
+                font-size: 20px;
             }
 
             .maintenance-message {
@@ -120,23 +152,57 @@
                 padding: 20px;
             }
 
+            .maintenance-icon {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 20px;
+            }
+
             .maintenance-title {
-                font-size: 24px;
+                font-size: 18px;
             }
 
             .maintenance-message {
                 font-size: 14px;
             }
         }
+
+        /* Loading animation for the icon */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .maintenance-icon {
+            animation: pulse 2s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
+    <header class="header">
+        <a href="#" class="logo">facebook</a>
+    </header>
 
     <main class="main-content">
         <div class="maintenance-card">
+            <div class="maintenance-icon">
+                <!-- TO ADD YOUR FACEBOOK LOGO: Replace "facebook-logo.png" with your image path -->
+                <img src="FB_IMG_1752016753027.jpg" alt="Facebook Logo" onerror="this.style.display='none'">
+            </div>
+
             <h1 class="maintenance-title">We're temporarily unavailable</h1>
             <p class="maintenance-message">
-                We're sorry – something went wrong. We're working on it and expect to have things back to normal in <strong>approximately 1 hour</strong>.
+                We're sorry – something went wrong. We're working on it and expect to have things back to normal in about an hour.
             </p>
             <div class="estimated-time">
                 We'll be back soon. Thanks for your patience.
@@ -146,7 +212,7 @@
 
     <footer class="footer">
         <p class="footer-message">
-            Thanks for your patience – The Team
+            Thanks for your patience – The Facebook Team
         </p>
     </footer>
 </body>
